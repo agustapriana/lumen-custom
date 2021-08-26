@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;;
+use Illuminate\Http\Request;
+use App\Model\HitungModel;
 
 class HitungController extends Controller
 {
@@ -25,11 +26,18 @@ class HitungController extends Controller
     }
 
     public function kurang(Request $req) {
+
+        $t = new HitungModel();
+
         $hasil = $req->awal - $req->akhir;
+
+        $status = $t->getKurang($req->awal, $req->akhir, $hasil);
+
         return response()->json([
             "awal" => $req->awal,
             "akhir" => $req->akhir,
-            "hasil" => $hasil 
+            "hasil" => $hasil ,
+            "status" => $status
         ]) ;
     }
 
