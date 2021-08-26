@@ -45,8 +45,8 @@ jobs:
       - name: fix code coverage paths
         working-directory: ./lumenfile/results
         run: |
-          sed -i 's/\/home\/runner\/work\/lumen-test\/lumen-test\//\/github\/workspace\//g' test-results.xml
-          sed -i 's/\/home\/runner\/work\/lumen-test\/lumen-test\//\/github\/workspace\//g' test-coverage.xml
+          sed -i 's/\/home\/runner\/work\/lumen-custom\/lumen-custom\//\/github\/workspace\//g' test-results.xml
+          sed -i 's/\/home\/runner\/work\/lumen-custom\/lumen-custom\//\/github\/workspace\//g' test-coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
