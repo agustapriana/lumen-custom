@@ -40,10 +40,10 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
         working-directory: lumenfile
       - name: Test with phpunit
-        run: vendor/bin/phpunit -c phpunit.xml --log-junit results/test-results.xml --coverage-clover results/test-coverage.xml
+        run: vendor/bin/phpunit -c phpunit.xml --log-junit test-results.xml --coverage-clover test-coverage.xml
         working-directory: lumenfile
       - name: fix code coverage paths
-        working-directory: ./lumenfile/results
+        working-directory: ./lumenfile
         run: |
           sed -i 's/\/home\/runner\/work\/lumen-custom\/lumen-custom\//\/github\/workspace\//g' test-results.xml
           sed -i 's/\/home\/runner\/work\/lumen-custom\/lumen-custom\//\/github\/workspace\//g' test-coverage.xml
