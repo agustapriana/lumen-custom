@@ -10,7 +10,7 @@ class HitungTest extends TestCase
      *
      * @return void
      */
-    public function testHitung_Success()
+    public function testHitung_Jumlah_Success()
     {
         $this->get('/penjumlahan/1/2');
 
@@ -19,5 +19,16 @@ class HitungTest extends TestCase
         $this->assertEquals( "1", $result["awal"]);
         $this->assertEquals( "2", $result["akhir"]);
         $this->assertEquals( "3", $result["hasil"]);
+    }
+
+    public function testHitung_Kurang_Success()
+    {
+        $this->get('/pengurangan/3/2');
+
+        $result = json_decode($this->response->getContent(), true);
+
+        $this->assertEquals( "3", $result["awal"]);
+        $this->assertEquals( "2", $result["akhir"]);
+        $this->assertEquals( "1", $result["hasil"]);
     }
 }

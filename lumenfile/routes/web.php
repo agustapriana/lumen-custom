@@ -18,3 +18,4 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/penjumlahan/{awal}/{akhir}', 'HitungController@jumlah');
+$router->get('/pengurangan/{awal}/{akhir}', 'HitungController@kurang');
